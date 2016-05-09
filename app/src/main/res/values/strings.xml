@@ -4,4 +4,6 @@
     <string name="action_sort">Sort List</string>
     <string name="action_add">Add Item</string>
     <string name="action_clear">Clear List</string>
+    <string name="action_api">Post List</string>
+    <string name="action_get">Get List</string>
 </resources>

@@ -9,8 +9,20 @@
         android:title="@string/action_clear"
         app:showAsAction="never" />
 
+    <item android:id="@+id/action_api"
+        android:icon="@drawable/ic_file_upload_white_48dp"
+        android:title="@string/action_api"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_get"
+        android:icon="@drawable/ic_file_download_white_48dp"
+        android:title="@string/action_get"
+        app:showAsAction="always" />
+
     <item android:id="@+id/action_add"
         android:icon="@drawable/ic_add_circle_outline_white_48dp"
         android:title="@string/action_add"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+
+
 </menu>

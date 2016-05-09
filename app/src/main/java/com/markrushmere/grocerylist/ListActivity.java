@@ -1,5 +1,6 @@
 package com.markrushmere.grocerylist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -84,6 +85,15 @@ public class ListActivity extends AppCompatActivity {
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    if (input.getText().toString().matches("")) {
+                        Context context = getApplicationContext();
+                        CharSequence text = "Field cannot be blank";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                        return;
+                    }
                     groceryList.add(preferredCase(input.getText().toString()));
                     Collections.sort(groceryList);
                     storeArrayVal(groceryList, getApplicationContext());
@@ -99,6 +109,35 @@ public class ListActivity extends AppCompatActivity {
             builder.show();
             return true;
         }
+
+        if (id == R.id.action_api) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Push List to BigOvenAPI?");
+            final EditText input = new EditText(this);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Send the request to the API to Sync the list
+
+
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
+            return true;
+        }
+        if (id == R.id.action_get) {
+            Intent intent = new Intent(this, GetActivity.class);
+            startActivity(intent);
+        }
+
+
+
 
         if (id == R.id.action_clear) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -119,6 +158,8 @@ public class ListActivity extends AppCompatActivity {
             builder.show();
             return true;
         }
+
+
 
 
         return super.onOptionsItemSelected(item);
@@ -168,5 +209,7 @@ public class ListActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
+
 
 }
