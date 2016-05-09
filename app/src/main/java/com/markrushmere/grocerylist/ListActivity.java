@@ -118,7 +118,7 @@ public class ListActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // Send the request to the API to Sync the list
-
+                    
 
                 }
             });
